@@ -14,27 +14,16 @@ data class Likes(
 
 data class Post(
     val id: Int = 0,
-
     val date: Int = 0,
-
     val text: String = "",
-
     val friendsOnly: Boolean = false,
-
     val canPin: Boolean = false,
-
     val canDelete: Boolean = false,
-
     val canEdit: Boolean = false,
-
     val isPinned: Boolean = false,
-
     val markedAsAds: Boolean = false,
-
     val isFavorite: Boolean = false,
-
     val comments: Comments = Comments(),
-
     val likes: Likes = Likes()
 )
 
@@ -60,6 +49,11 @@ object WallService {
             }
         }
         return false
+    }
+
+    fun clear() {
+        posts.clear()
+        nextId = 1
     }
 
     fun getAll(): List<Post> = posts.toList()
